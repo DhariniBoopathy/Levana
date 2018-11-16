@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -18,15 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @Entity
-//@Table(name="customer")
-@Table
 public class Product {
-	
-	    
-	
-
-
-		@Column(nullable=false)
+	@Column(nullable=false)
 		@NotBlank(message="Product_Name is mandatory")
 		private String product_Name;
 		
@@ -42,80 +36,93 @@ public class Product {
 		
 		
 		@Column(nullable=false)
-		@NotBlank(message="Quantity is mandatory")
-		private String quantity;
+		@NotNull(message="Quantity is mandatory")
+		private int quantity;
 		
 		public int getProduct_id() {
 			return product_id;
 		}
-
-		public void setProduct_id(int product_id) {
-			this.product_id = product_id;
-		}
-
-		public String getProductDesc() {
-			return productDesc;
-		}
-
-		public void setProductDesc(String productDesc) {
-			this.productDesc = productDesc;
-		}
-
-		public String getQuantity() {
-			return quantity;
-		}
-
-		public void setQuantity(String quantity) {
-			this.quantity = quantity;
-		}
-
-		public String getPrice() {
-			return price;
-		}
-
-		public void setPrice(String price) {
-			this.price = price;
-		}
-
-		public Category getCategory() {
-			return category;
-		}
-
-		public void setCategory(Category category) {
-			this.category = category;
-		}
-
-		public void setProduct_Name(String product_Name) {
-			this.product_Name = product_Name;
-		}
-
+		
 		@Column(nullable=false)
-		@NotBlank(message="Price is mandatory")
-		private String price;
+		@NotNull(message="Price is mandatory")
+		private int price;
+		
+	
+		
 		
 		@ManyToOne
 		@OnDelete(action=OnDeleteAction.CASCADE)
 		private Category category;
 		
+		
+		@Transient
+		MultipartFile pimage;
+
 		public String getProduct_Name() {
 			return product_Name;
 		}
 
-		@Transient
-		MultipartFile pimage;
+
+		public void setProduct_Name(String product_Name) {
+			this.product_Name = product_Name;
+		}
+
+
+		public String getProductDesc() {
+			return productDesc;
+		}
+
+
+		public void setProductDesc(String productDesc) {
+			this.productDesc = productDesc;
+		}
+
+
+		public int getQuantity() {
+			return quantity;
+		}
+
+
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+
+
+		public int getPrice() {
+			return price;
+		}
+
+
+		public void setPrice(int price) {
+			this.price = price;
+		}
+
+
+		public Category getCategory() {
+			return category;
+		}
+
+
+		public void setCategory(Category category) {
+			this.category = category;
+		}
+
 
 		public MultipartFile getPimage() {
 			return pimage;
 		}
 
+
 		public void setPimage(MultipartFile pimage) {
 			this.pimage = pimage;
 		}
 
-		
-		
-	
 
+		public void setProduct_id(int product_id) {
+			this.product_id = product_id;
+		}
+
+		
 }
 
 

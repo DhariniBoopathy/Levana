@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.levana.levanabackend.DAL.UserDAO;
-import com.levana.levanabackend.Model.User;
+import com.levana.levanabackend.Model.UserDetails;
 
 
 @Controller
@@ -24,12 +24,12 @@ public class UserController
 
 	m.addAttribute("Signuppage", true);
 	m.addAttribute("tittle", "levana.Signup");
-	m.addAttribute("User", new User());
+	m.addAttribute("User", new UserDetails());
 	return "index";
 	}
 	
 	@RequestMapping("/addUser")
-	public String addUser(@Valid @ModelAttribute("User") User user,BindingResult BR,Model m)
+	public String addUser(@Valid @ModelAttribute("User") UserDetails user,BindingResult BR,Model m)
 	{
 		if(BR.hasErrors())
 		{
@@ -45,7 +45,7 @@ public class UserController
 			if(UserDAOImpl.CreateUserDetails(user))
 			{
 				System.out.println("2");
-				m.addAttribute("Signin", true);
+				m.addAttribute("Signinpage", true);
 				m.addAttribute("tittle", "Levana.Signin");
 			}
 			else

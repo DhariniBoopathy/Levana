@@ -108,15 +108,18 @@
                 </div>
             </article>
   </aside>
+  
   <aside class="col-sm-3">
-      <div class="param param-inline" style="padding-top: 25%;">
-      <span class="price-title">Quantity: </span>
-     <input type="text" class="form-control form-control-sm" style="width:70px;" > 
+      <div class="param param-inline" style="padding-top: 50%;">
+     
    </div>
       <div class="row" style="padding-top: 25%;">
-        <button class="btn btn-lg color-box-waanbii" type="button"> <i class="fa fa-shopping-cart"></i> Add to Cart </button>
+        <a href="addToCart?pid=${l.product_id}" class="btn btn-lg color-box-waanbii" type="button"> <i class="fa fa-shopping-cart"></i> Add to Cart </a>
          </div>
      </aside>
+ 
+ 
  </div>
+ 
 </div>
 </div>

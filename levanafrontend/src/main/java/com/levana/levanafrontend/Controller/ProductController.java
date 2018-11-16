@@ -63,7 +63,7 @@ public class ProductController
 
 
 
-@RequestMapping(value= {"/Product"})
+@RequestMapping(value= {"/admin/Product"})
  public String registerpage(Model m) {
   m.addAttribute("productpage",true);
   m.addAttribute("title","levana-Product");
@@ -74,7 +74,7 @@ public class ProductController
   return "index";
    
   }
- @RequestMapping("/addProduct")
+ @RequestMapping("/admin/addProduct")
  public String addproduct(@Valid @ModelAttribute("Product")Product product,BindingResult BR,Model m)
  {
   if(BR.hasErrors())
@@ -116,7 +116,7 @@ public class ProductController
      }
   return "index";
  }
- @RequestMapping("/deleteproduct")
+ @RequestMapping("/admin/deleteproduct")
 	public String deleteProduct(@RequestParam("pid") int pid) {
 	 if(productdaoImpl.DeleteProduct(productdaoImpl.SelectProduct(pid)))
 		{
@@ -129,10 +129,10 @@ public class ProductController
 					
 		     }
 			
-		}return "redirect:/Product";
+		}return "redirect:/admin/Product";
  }
  
- @RequestMapping("/editproduct")
+ @RequestMapping("/admin/editproduct")
  public String editproduct(@RequestParam("pid") int pid, Model m) {
   m.addAttribute("productpage", true);
   m.addAttribute("title", "levana-Product");
@@ -144,7 +144,7 @@ public class ProductController
  }
  
  
- @RequestMapping("/updateproduct")
+ @RequestMapping("/admin/updateproduct")
  public String editproduct(@Valid @ModelAttribute("Product") Product product, BindingResult BR, Model m) {
   if (BR.hasErrors()) {
    System.out.println("1");
@@ -175,19 +175,12 @@ public class ProductController
   }
   return "index";
  }
- @RequestMapping(value = "/AllProduct")
- public String allproducts(Model m) {
-  m.addAttribute("viewallproductpage", true);
-  m.addAttribute("catlist",catagorydaoImpl.ViewAllCategory());
-  m.addAttribute("title", "GiftGalore-Products");
-  m.addAttribute("prodlist", productdaoImpl.SelectAllProduct());
-  return "index";
- }
+ 
 
  @RequestMapping(value = "/OneProduct")
  public String oneproductpage(Model m,@RequestParam("pid")int pid) {
   m.addAttribute("viewoneproductpage", true);
-  m.addAttribute("title", "GiftGalore-Products");
+  m.addAttribute("title", "levana-Products");
   m.addAttribute("l", productdaoImpl.SelectProduct(pid));
   return "index";
  }
@@ -196,11 +189,19 @@ public class ProductController
  public String catproducts(Model m,@RequestParam("catname") String name) {
 	 m.addAttribute("viewallproductpage", true);
 	  m.addAttribute("catlist",catagorydaoImpl.ViewAllCategory());
-	  m.addAttribute("title", "GiftGalore-Products");
+	  m.addAttribute("title", "levana-Products");
 	  m.addAttribute("prodlist", productdaoImpl.SelectCatproduct(name));
 	  return "index";
 	 }
  
+ @RequestMapping(value = "/AllProduct")
+ public String allproducts(Model m) {
+	 m.addAttribute("viewallproductpage", true);
+	  m.addAttribute("catlist",catagorydaoImpl.ViewAllCategory());
+	  m.addAttribute("title", "levana-Products");
+	  m.addAttribute("prodlist", productdaoImpl.SelectAllProduct());
+	  return "index";
+	 }
  
  
 }

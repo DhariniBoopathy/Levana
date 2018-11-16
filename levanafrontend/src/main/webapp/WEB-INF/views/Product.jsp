@@ -1,5 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="CR" value="${pageContext.request.contextPath}/resources/pimages" />
+<c:set var="cr2" value="${pageContext.request.contextPath}/admin" />
+
 <!--Pulling Awesome Font -->
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
@@ -50,6 +53,17 @@ h4 {
 .wrapper {
 	text-align: center;
 }
+.row
+{
+border-style: solid;
+	border-color: #f9c3ec;
+	border-width: .5px;
+}
+.myform{
+margin-left: 5%;
+margin-right: 5%;
+	
+}
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -70,61 +84,56 @@ h4 {
 	</c:if>
 
 	<div class="row">
-
-		<div class="form-login">
 			<h4>Product</h4>
-
-			<form:form modelAttribute="Product" action="${url}" method="post"
+			<form:form class="myform" modelAttribute="Product" action="${url}" method="post"
 				enctype="multipart/form-data">
 				<c:if test="${edit}">
 					<form:input type="text" id="Product_Name"
-						class="form-control input-sm chat-input"
+						class="form-control"
 						placeholder="product_Name" path="product_id" readonly="true" />
 					<br />
 				</c:if>
 				<form:input type="text" id="Product_Name"
-					class="form-control input-sm chat-input" placeholder="product_Name"
+					class="form-control" placeholder="product_Name"
 					path="product_Name" />
 				<form:errors path="product_Name" class="stylingerror" />
 				<br />
 
 				<form:input type="text" id="productDesc"
-					class="form-control input-sm chat-input" placeholder="productDesc"
+					class="form-control" placeholder="productDesc"
 					path="productDesc" />
 				<form:errors path="productDesc" class="stylingerror" />
 				<br />
 				<form:input type="text" id="quantity"
-					class="form-control input-sm chat-input" placeholder="quantity"
+					class="form-control" placeholder="quantity"
 					path="quantity" />
 				<form:errors path="quantity" class="stylingerror" />
 				<br />
 				<form:input type="text" id="price"
-					class="form-control input-sm chat-input" placeholder="price"
+					class="form-control" placeholder="price"
 					path="price" />
 				<form:errors path="price" class="stylingerror" />
 				<br />
 				<form:select path="Category.category_id"
-					class="form-control input-sm chat-input">
+					class="form-control">
 					<c:forEach items="${catlist}" var="l">
 						<form:option value="${l.category_id}">${l.category_Name }</form:option>
 					</c:forEach>
 				</form:select>
 				<br />
-				<form:input type="file" class="form-control input-sm chat-input"
+				<form:input type="file" class="form-control"
 					placeholder="image" path="pimage" />
 				<c:if test="${!edit}">
 					<div class="wrapper">
 						<span class="group-btn"> <input type="submit"
-							class="btn btn-primary btn-md" value="Add Product"> <i
-							class="fa fa-sign-in"></i>
+							class="btn btn-primary btn-md" value="Add Product"> 
 						</span>
 					</div>
 				</c:if>
 				<c:if test="${edit}">
 					<div class="wrapper">
 						<span class="group-btn"> <input type="submit"
-							class="btn btn-primary btn-md" value="Update pategory"> <i
-							class="fa fa-sign-in"></i>
+							class="btn btn-primary btn-md" value="Update category"> 
 						</span>
 					</div>
 				</c:if>
@@ -165,7 +174,7 @@ h4 {
 						<tr>
 						
 						  
-       <td><img src="resources/pimages/${l.product_id}.jpg" height="50px" width="50px"></td>
+       <td><img src="${CR}/${l.product_id}.jpg" height="50px" width="50px"></td>
 							<td>${l.product_id}</td>
 
 
@@ -182,11 +191,11 @@ h4 {
 
 
 							<td><a class='btn btn-success btn-xs'
-								href="editproduct?pid=${l.product_id}"><span
+								href="${cr2}/editproduct?pid=${l.product_id}"><span
 									class="glyphicon glyphicon-edit"></span> Edit</a></td>
 
 							<td><a class='btn btn-danger btn-xs'
-								href="deleteproduct?pid=${l.product_id}"><span
+								href="${cr2}/deleteproduct?pid=${l.product_id}"><span
 									class="glyphicon glyphicon-trash"></span> Delete</a></td>
 
 						</tr>

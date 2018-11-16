@@ -12,30 +12,20 @@ footer {
 	font-size:15px;
 color:#000000;
 font-family:Comic Sans MS;
- 
+ height: 40px;
 }
 
-#justpushtobottom {
-	height: 10vh;
-	position:absolute;
-	
-}
 </style>
-<div id="justpushtobottom"></div>
-
-<footer class="footer p-t-1">
-	<div class="container">
+ <footer class="footer">
 		<div class="pull-right">
 			<h4>
 				Powered by ParadigmOz.com <a href="http://www.paradigmOz.com"
 					target="_blank"></a>
 			</h4>
 		</div>
-		<a href="#"><i class="fa fa-facebook-official fa-2x"></i></a> <a
-		href="#"><i class="fa fa-pinterest-p fa-2x"></i></a> <a href="#"><i
-		class="fa fa-twitter fa-2x"></i></a> <a href="#"><i
-		class="fa fa-flickr fa-2x"></i></a> <a href="#"><i
-		class="fa fa-linkedin fa-2x"></i></a>
-	</div>
-	
+		<a href="#"><i class="fa fa-facebook-official"></i></a> <a
+		href="#"><i class="fa fa-pinterest-p"></i></a> <a href="#"><i
+		class="fa fa-twitter"></i></a> <a href="#"><i
+		class="fa fa-flickr"></i></a> <a href="#"><i
+		class="fa fa-linkedin"></i></a>
 </footer>

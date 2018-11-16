@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class UserCred {
 
 	@Id
-	String Emailid;
+	String emailid;
 
 	@Column(nullable = false)
 	String User_Password;
@@ -31,12 +31,14 @@ public class UserCred {
 		this.role = role;
 	}
 
+	
+
 	public String getEmailid() {
-		return Emailid;
+		return emailid;
 	}
 
 	public void setEmailid(String emailid) {
-		Emailid = emailid;
+		this.emailid = emailid;
 	}
 
 	public String getUser_Password() {

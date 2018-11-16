@@ -1,5 +1,6 @@
 package com.levana.levanabackend.DAL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -47,25 +48,40 @@ public class CartDAOImpl implements CartDAO {
 	public boolean DeleteCart(int id) {
 		try
 		{
-			Cart cart=(Cart)sessionfactory.getCurrentSession().createQuery("from cart where itemid="+id).uniqueResult();
+			System.out.println("backend cart delete");
+			Cart cart=(Cart)sessionfactory.getCurrentSession().createQuery("from Cart where itemid="+id).uniqueResult();
 			sessionfactory.getCurrentSession().delete(cart);
 			return true;
 		}
 		catch (Exception e) {
+			System.out.println("catch block"+e.getMessage());
 			return false;
 		}
 		}
 
 	public List<Cart> SelectCart(int cartid) {
 		try {
-			return sessionfactory.getCurrentSession()
-					.createQuery("from Cart where cartid"+cartid).list();
+			return sessionfactory.getCurrentSession().createQuery("from Cart where cartid="+cartid).list();
 		}
 
 		catch (Exception e) {
-			return null;
+			 return new ArrayList<Cart>();
 		}
 
 	}
 
-}
+	@Override
+	public Cart showitem(int itemid) {
+		try {
+			Cart cart=(Cart)sessionfactory.getCurrentSession().createQuery("from Cart where itemid="+itemid).uniqueResult();
+						return cart;
+		}
+		catch(Exception e) {
+			 return null;
+		}
+
+	}
+	}
+	
+	
+

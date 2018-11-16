@@ -1,5 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="cr1" value="${pageContext.request.contextPath}/admin"></c:set>
+
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 	rel="stylesheet">
@@ -14,8 +16,8 @@ body {
 
 .container {
 	padding-top: 25px;
-	padding-right: 200px;
-	padding-left: 200px;
+	padding-right: 5%;
+	padding-left: 5%;
 }
 
 .form-login {
@@ -48,6 +50,17 @@ h4 {
 .wrapper {
 	text-align: center;
 }
+
+.row {
+	border-style: solid;
+	border-color: #f9c3ec;
+	border-width: .5px;
+}
+
+.myform {
+	margin-left: 5%;
+	margin-right: 5%;
+}
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -65,107 +78,100 @@ h4 {
 	});
 </script>
 <div class="container">
-<c:if test="${!edit}">
-<c:url var="url" value="addCategory"></c:url>
-</c:if>
+	<c:if test="${!edit}">
+		<c:url var="url" value="addCategory"></c:url>
+	</c:if>
 
-<c:if test="${edit}">
-<c:url var="url" value="updateCategory"></c:url>
+	<c:if test="${edit}">
+		<c:url var="url" value="updateCategory"></c:url>
 
-</c:if>
+	</c:if>
 	<div class="row">
-		<div class="form-login">
-			<h4>Category</h4>
-
-			<form:form modelAttribute="category" action="${url}"
-				method="post">
-				<c:if test="${edit}">
-					<form:input type="text" id="Category_Name"
-						class="form-control input-sm chat-input"
-						placeholder="Category_Name" path="category_id" readonly="true" />
-				</c:if>
-				<br/>
+		<h4>Category</h4>
+		<form:form class="myform" modelAttribute="category" action="${url}" method="post">
+			<c:if test="${edit}">
 				<form:input type="text" id="Category_Name"
 					class="form-control input-sm chat-input"
-					placeholder="Category_Name" path="category_Name" />
-				<form:errors path="category_Name" class="stylingerror" />
-				<br />
+					placeholder="Category_Name" path="category_id" readonly="true" />
+			</c:if>
+			<br />
+			<form:input type="text" id="Category_Name" class="form-control"
+				placeholder="Category_Name" path="category_Name" />
+			<form:errors path="category_Name" class="stylingerror" />
+			<br />
 
-				<form:input type="text" id="CategoryDesc"
-					class="form-control input-sm chat-input" placeholder="CategoryDesc"
-					path="categoryDesc" />
-				<form:errors path="categoryDesc" class="stylingerror" />
-				<br />
-		<c:if test="${!edit}">
+			<form:input type="text" id="CategoryDesc" class="form-control"
+				placeholder="CategoryDesc" path="categoryDesc" />
+			<form:errors path="categoryDesc" class="stylingerror" />
+			<br />
+			<c:if test="${!edit}">
 				<div class="wrapper">
 					<span class="group-btn"> <input type="submit"
-						class="btn btn-primary btn-md" value="Add Category"> <i
-						class="fa fa-sign-in"></i>
-					</span>
-				</div>
-				</c:if>
-			<c:if test="${edit}">
-				<div class="wrapper">
-					<span class="group-btn"> <input type="submit"
-						class="btn btn-primary btn-md" value="Update Category"> <i
-						class="fa fa-sign-in"></i>
+						class="btn btn-primary btn-md" value="Add Category"> 
 					</span>
 				</div>
 			</c:if>
-			</form:form>
-		</div>
-		<div class="table-responsive" style="padding-top: 20px">
+			<c:if test="${edit}">
+				<div class="wrapper">
+					<span class="group-btn"> <input type="submit"
+						class="btn btn-primary btn-md" value="Update Category">
+					</span>
+				</div>
+			</c:if>
+		</form:form>
+	</div>
+	<div class="table-responsive" style="padding-top: 20px">
 
-			<table id="table_id" name="table_id" class="display"
-				style="padding-top: 20px">
+		<table id="table_id" name="table_id" class="display"
+			style="padding-top: 20px">
 
-				<thead>
+			<thead>
+
+				<tr>
+
+					<th>CATEGORY ID</th>
+
+					<th>CATEGORY NAME</th>
+
+					<th>CATEGORY Description</th>
+
+					<th>EDIT</th>
+
+					<th>DELETE</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<c:forEach items="${catlist}" var="l">
 
 					<tr>
 
-						<th>CATEGORY ID</th>
+						<td>${l.category_id}</td>
 
-						<th>CATEGORY NAME</th>
+						<td>${l.category_Name}</td>
+						<td>${l.categoryDesc}</td>
 
-						<th>CATEGORY Description</th>
+						<td><a class='btn btn-success btn-xs'
+							href="${cr1}/editcategory?catname=${l.category_Name}"><span
+								class="glyphicon glyphicon-edit"></span> Edit</a></td>
 
-						<th>EDIT</th>
-
-						<th>DELETE</th>
+						<td><a class='btn btn-danger btn-xs'
+							href="${cr1}/deleteCategory?catname=${l.category_Name}"><span
+								class="glyphicon glyphicon-trash"></span> Delete</a></td>
 
 					</tr>
 
-				</thead>
+				</c:forEach>
 
-				<tbody>
+			</tbody>
 
-					<c:forEach items="${catlist}" var="l">
-
-						<tr>
-
-							<td>${l.category_id}</td>
-
-							<td>${l.category_Name}</td>
-							<td>${l.categoryDesc}</td>
-
-							<td><a class='btn btn-success btn-xs'
-								href="editcategory?catname=${l.category_Name}"><span
-									class="glyphicon glyphicon-edit"></span> Edit</a></td>
-
-							<td><a class='btn btn-danger btn-xs'
-								href="deleteCategory?catname=${l.category_Name}"><span
-									class="glyphicon glyphicon-trash"></span> Delete</a></td>
-
-						</tr>
-
-					</c:forEach>
-
-				</tbody>
-
-			</table>
-
-		</div>
+		</table>
 
 	</div>
+
+</div>
 </div>
 

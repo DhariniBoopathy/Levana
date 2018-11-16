@@ -12,57 +12,62 @@
 <link rel="stylesheet"
 	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
-<script
+<script>
 	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 	<c:import url="navbar.jsp" />
-	<c:if test="${sliderpage}">
-		<c:import url="carousel.jsp" />
-	</c:if>
+	<div style="min-height: 500px;">
+		<c:if test="${sliderpage}">
+			<c:import url="carousel.jsp" />
+		</c:if>
 
-	<c:if test="${aboutuspage}">
-		<c:import url="aboutus.jsp" />
-	</c:if>
+		<c:if test="${aboutuspage}">
+			<c:import url="aboutus.jsp" />
+		</c:if>
 
-	<c:if test="${termspage}">
-		<c:import url="terms.jsp" />
-	</c:if>
+		<c:if test="${termspage}">
+			<c:import url="terms.jsp" />
+		</c:if>
 
-	<c:if test="${privacypage}">
-		<c:import url="privacy.jsp" />
-	</c:if>
+		<c:if test="${privacypage}">
+			<c:import url="privacy.jsp" />
+		</c:if>
 
-	<c:if test="${contactuspage}">
-		<c:import url="contactus.jsp" />
-	</c:if>
+		<c:if test="${contactuspage}">
+			<c:import url="contactus.jsp" />
+		</c:if>
 
 
 
-	<c:if test="${Signuppage}">
-		<c:import url="Signup.jsp" />
-	</c:if>
+		<c:if test="${Signuppage}">
+			<c:import url="Signup.jsp" />
+		</c:if>
 
-	<c:if test="${Signinpage}">
-		<c:import url="Signin.jsp" />
-	</c:if>
+		<c:if test="${Signinpage}">
+			<c:import url="Signin.jsp" />
+		</c:if>
 
-	<c:if test="${categorypage}">
-		<c:import url="Category.jsp" />
-	</c:if>
+		<c:if test="${categorypage}">
+			<c:import url="Category.jsp" />
+		</c:if>
 
-	<c:if test="${productpage}">
-		<c:import url="Product.jsp" />
-	</c:if>
+		<c:if test="${productpage}">
+			<c:import url="Product.jsp" />
+		</c:if>
 
-	<c:if test="${viewallproductpage}">
-		<c:import url="viewallproducts.jsp" />
-	</c:if>
+		<c:if test="${viewallproductpage}">
+			<c:import url="viewallproducts.jsp" />
+		</c:if>
 
-	<c:if test="${viewoneproductpage}">
-		<c:import url="viewoneproduct.jsp" />
-	</c:if>
-
+		<c:if test="${viewoneproductpage}">
+			<c:import url="viewoneproduct.jsp" />
+		</c:if>
+		<c:if test="${cartpage}">
+			<c:import url="Cart.jsp" />
+		</c:if>
+		
+	</div>
 	<c:import url="footer.jsp" />
 
 </body>

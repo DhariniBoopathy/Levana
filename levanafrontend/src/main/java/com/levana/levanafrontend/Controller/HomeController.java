@@ -23,7 +23,7 @@ public class HomeController {
 		public String aboutuspage(Model m){
 			
 		m.addAttribute("aboutuspage", true);
-		m.addAttribute("title","levana-Aboutuss");
+		m.addAttribute("title","levana-Aboutus");
 		return "index";
 		}
 		
@@ -44,13 +44,7 @@ public class HomeController {
 		return "index";
 		}
 		
-		@RequestMapping(value= {"/Signin"})
-		public String Signinpage(Model m){
-			
-		m.addAttribute("Signinpage", true);
-		m.addAttribute("title","levana-Signin");
-		return "index";
-		}
+		
 	
 		@RequestMapping(value= {"/contactus"})
 		public String contactuspage(Model m){

@@ -1,6 +1,5 @@
 package com.levana.levanabackend.DAL;
-
-import com.levana.levanabackend.Model.User;
+import com.levana.levanabackend.Model.UserDetails;
 import com.levana.levanabackend.Model.UserCred;
 import javax.transaction.Transactional;
 
@@ -15,7 +14,7 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	SessionFactory sessionfactory;
 
-	public boolean CreateUserDetails(User userdetails) {
+	public boolean CreateUserDetails(UserDetails userdetails) {
 
 		try
 		{
@@ -23,10 +22,9 @@ public class UserDAOImpl implements UserDAO {
 		c.setEmailid(userdetails.getEmailid());
 		c.setUser_Password(userdetails.getU_password());
 		c.setStatus("True");
-		c.setRole("USER_ROLE");
+		c.setRole("ROLE_USER");
 		sessionfactory.getCurrentSession().save(userdetails);
-		sessionfactory.getCurrentSession().save(c);
-		
+		sessionfactory.getCurrentSession().save(c);		
 		return true;
 		}
 		catch (Exception e) {
@@ -34,7 +32,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public boolean UpdateUserDetails(User userdetails) 
+	public boolean UpdateUserDetails(UserDetails userdetails) 
 	{
 		try
 		{
@@ -48,7 +46,7 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
-	public boolean DeleteUserDetails(User userdetails) 
+	public boolean DeleteUserDetails(UserDetails userdetails) 
 	{
 		try
 		{
@@ -61,9 +59,9 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public User SelectUser(String emailid) {
+	public UserDetails SelectUser(String emailid) {
 		try {
-			return (User) sessionfactory.getCurrentSession()
+			return (UserDetails) sessionfactory.getCurrentSession()
 					.createQuery("from UserDetails where Emailid='" + emailid + "'").uniqueResult();
 		}
 
