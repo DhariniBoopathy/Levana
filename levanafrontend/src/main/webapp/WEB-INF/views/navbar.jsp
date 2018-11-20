@@ -4,7 +4,7 @@
 <style>
 .navbar {
 	font-style: bold;
-	background-color: F9C3EC;
+	background-color: #F484D9;
 	height: 50px;
 }
 
@@ -68,7 +68,10 @@ a {
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href=""><span class="glyphicon glyphicon-user"></span>
 								Hi ${sessionScope.username}</a></li>
-								<li><a href="${contextroot}/user/SelectCart"><span class="glyphicon glyphicon-shopping-cart"</span></a></li>
+						<li><a href="${contextroot}/user/viewCart"><span
+								class="glyphicon glyphicon-shopping-cart"></span></a></li>
+						<li><a href="${contextroot}/user/viewOrders"><span
+								class="glyphicon glyphicon-list-alt"></span>ViewOrders </a></li>
 						<li><a href="${contextroot}/Signout">Signout <span
 								class="glyphicon glyphicon-hand-left"></span></a></li>
 

@@ -67,6 +67,23 @@
 			<c:import url="Cart.jsp" />
 		</c:if>
 		
+		<c:if test="${orderpage}">
+			<c:import url="Order.jsp" />
+		</c:if>
+		
+		<c:if test="${addresspage}">
+			<c:import url="Address.jsp" />
+		</c:if>
+		
+		
+		<c:if test="${billpage}">
+			<c:import url="Invoice.jsp" />
+		</c:if>
+		
+		
+		
+		
+		
 	</div>
 	<c:import url="footer.jsp" />
 

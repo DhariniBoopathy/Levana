@@ -13,9 +13,6 @@ public interface CategoryDAO {
 	List<Category> ViewAllCategory();
 	Category ViewOneCategory(String CategoryName);
 	
-	
-
-
-}
+	}
 
 

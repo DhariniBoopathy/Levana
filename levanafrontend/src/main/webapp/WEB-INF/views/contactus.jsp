@@ -47,18 +47,17 @@ a:link {
 			<div class="col-md-4 box1">
 				<a href="tel:+123456789"><i class="fas fa-phone fa-3x"></i>
 					<h3 class="d-none d-lg-block d-xl-block">Phone</h3>
-					<p class="d-none d-lg-block d-xl-block">+123456789</p></a>
+					<p class="d-none d-lg-block d-xl-block">+91 9047827661 </p></a>
 			</div>
 			<div class="col-md-4 box2">
 				<a href=""><i class="fas fa-home fa-3x"></i>
 					<h3 class="d-none d-lg-block d-xl-block">Address</h3>
-					<p class="d-none d-lg-block d-xl-block">Piazza del Colosseo, 1,
-						00184 Roma RM</p></a>
+					<p class="d-none d-lg-block d-xl-block">Vasantha Nagar,Ramanathapuram,Coimbatore- 641045</p></a>
 			</div>
 			<div class="col-md-4 box3">
 				<a href="mailto:test@test.com"><i class="fas fa-envelope fa-3x"></i>
 					<h3 class="d-none d-lg-block d-xl-block">E-mail</h3>
-					<p class="d-none d-lg-block d-xl-block">test@test.com</p></a>
+					<p class="d-none d-lg-block d-xl-block">levana@gmail.com</p></a>
 			</div>
 		</div>
 	</div>

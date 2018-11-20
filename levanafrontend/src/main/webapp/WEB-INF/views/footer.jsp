@@ -6,26 +6,21 @@
 	crossorigin="anonymous">
 
 <style>
-footer {
+.footer {
 
-	background-color: F9C3EC;
+	background-color:   #F484D9;
 	font-size:15px;
 color:#000000;
 font-family:Comic Sans MS;
  height: 40px;
+ 
 }
 
 </style>
  <footer class="footer">
-		<div class="pull-right">
-			<h4>
-				Powered by ParadigmOz.com <a href="http://www.paradigmOz.com"
-					target="_blank"></a>
-			</h4>
-		</div>
-		<a href="#"><i class="fa fa-facebook-official"></i></a> <a
-		href="#"><i class="fa fa-pinterest-p"></i></a> <a href="#"><i
-		class="fa fa-twitter"></i></a> <a href="#"><i
-		class="fa fa-flickr"></i></a> <a href="#"><i
-		class="fa fa-linkedin"></i></a>
+		<a href="#"><i class="fa fa-facebook-official fa-2x"></i></a>  <a
+		href="#"><i class="fa fa-pinterest-p fa-2x"></i></a>    <a href="#"><i
+		class="fa fa-twitter fa-2x"></i></a>    <a href="#"><i
+		class="fa fa-flickr fa-2x"></i></a>    <a href="#"><i
+		class="fa fa-linkedin fa-2x"></i></a>
 </footer>

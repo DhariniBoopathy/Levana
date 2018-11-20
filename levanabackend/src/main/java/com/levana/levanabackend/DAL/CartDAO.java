@@ -6,14 +6,11 @@ import com.levana.levanabackend.Model.Cart;
 
 
 
-
 public interface CartDAO {
-	
-	boolean CreateCart(Cart cart);
-	boolean UpdateCart(Cart cart);
-	boolean DeleteCart(int id);
-	List<Cart> SelectCart(int cartid);
-    Cart showitem(int itemid);
-}
-
-
+	 
+	 boolean CreateCart(Cart cart);
+	 boolean UpdateCart(Cart cart);
+	 boolean DeleteCart(int id);
+	 List<Cart> ViewCart(int cartid);
+	 Cart Showitem(int itemid);
+	}

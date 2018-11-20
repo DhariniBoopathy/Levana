@@ -8,18 +8,11 @@ import com.levana.levanabackend.Model.Address;
 
 	
 
-	public interface AddressDAO {
+public interface AddressDAO {
+	 boolean CreateAddress(Address address);
+	 boolean UpdateAddress(Address address);
+	 boolean DeleteAddress(int id);
+	 Address SelectoneAddress(int addressid);
+	 List<Address> SelectallAddress(int cartid);
 
-		
-
-		boolean CreateAddress(Address address);
-		boolean UpdateAddress(Address address);
-		boolean DeleteAddress(Address address);
-		List<Address> ViewAllAddress(int cartid);
-		Address ViewOneAddress(int addressid);
-
-
-	
-
-
-}
+	}
